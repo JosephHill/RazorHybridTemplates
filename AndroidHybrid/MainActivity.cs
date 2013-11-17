@@ -25,30 +25,42 @@ namespace AndroidHybrid
 			// Use subclassed WebViewClient to intercept hybrid native calls
 			webView.SetWebViewClient (new HybridWebViewClient ());
 
+			// Render the view from the type generated from RazorView.cshtml
 			var template = new RazorView () { Model = "Text goes here" };
 			var page = template.GenerateString ();
 
+			// Load the rendered HTML into the view with a base URL 
+			// that points to the root of the bundled Assets folder
 			webView.LoadDataWithBaseURL("file:///android_asset/", page, "text/html", "UTF-8", null);
 
 		}
 
 		private class HybridWebViewClient : WebViewClient {
-			public override bool ShouldOverrideUrlLoading (WebView view, string url) {
-				if (!url.StartsWith ("hybrid:")) 
+			public override bool ShouldOverrideUrlLoading (WebView webView, string url) {
+
+				// If the URL is not our own custom scheme, just let the webView load the URL as usual
+				var scheme = "hybrid:";
+
+				if (!url.StartsWith (scheme)) 
 					return false;
 
-				var resources = url.Substring(7).Split('?');
+				// This handler will treat everything between the protocol and "?"
+				// as the method name.  The querystring has all of the parameters.
+				var resources = url.Substring(scheme.Length).Split('?');
+				var method = resources [0];
+				var parameters = System.Web.HttpUtility.ParseQueryString(resources[1]);
 
-				if (resources[0] == "UpdateLabel") {
-					var values = System.Web.HttpUtility.ParseQueryString(resources[1]);
+				if (method == "UpdateLabel") {
+					var textbox = parameters["textbox"];
 
-					var textvalue = values["textbox"];
+					// Add some text to our string here so that we know something
+					// happened on the native part of the round trip.
+					var prepended = string.Format ("C# says \"{0}\"", textbox);
 
-					var prepended = string.Format ("C# says \"{0}\"", textvalue);
-
+					// Build some javascript using the C#-modified result
 					var js = string.Format("SetLabelText('{0}');", prepended);
 
-					view.LoadUrl ("javascript:" + js);
+					webView.LoadUrl ("javascript:" + js);
 				}
 
 				return true;

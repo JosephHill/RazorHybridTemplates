@@ -23,7 +23,7 @@ public partial class RazorView : RazorViewBase
 
 #line hidden
 
-#line 1 "/Users/joseph/Projects/RazorHybrid/iPadHybrid/RazorView.cshtml"
+#line 1 "/git/RazorHybrid/iPadHybrid/RazorView.cshtml"
 public System.String Model { get; set; }
 
 #line default
@@ -43,6 +43,10 @@ WriteLiteral(" />\n\t\t<script");
 WriteLiteral(" type=\"text/javascript\"");
 
 WriteLiteral(@">
+			
+			// This javascript method calls C# by setting the browser 
+			// to a URL with a custom scheme that is registered in C#.  
+			// All values are sent to C# as part of the querystring  
 			function InvokeCSharpWithFormValues(elm) {
 				var qs = """";
 				var elms = elm.form.elements;
@@ -57,6 +61,7 @@ WriteLiteral(@">
 				location.href = ""hybrid:"" + elm.name + ""?"" + qs;
 			}
 
+			// This javascript method is called from C#
 			function SetLabelText(text) {
 				var elm = document.getElementById('label');
 				elm.innerHTML = text;
@@ -81,7 +86,7 @@ WriteLiteral(" id=\"label\"");
 WriteLiteral(">");
 
 
-#line 32 "/Users/joseph/Projects/RazorHybrid/iPadHybrid/RazorView.cshtml"
+#line 37 "/git/RazorHybrid/iPadHybrid/RazorView.cshtml"
                Write(Model);
 
 
