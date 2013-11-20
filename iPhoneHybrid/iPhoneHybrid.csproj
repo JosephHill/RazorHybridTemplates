@@ -99,7 +99,7 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="RazorView.cshtml">
+    <None Include="Views\RazorView.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
       <LastGenOutput>RazorView.cs</LastGenOutput>
     </None>
@@ -111,12 +111,17 @@
     <Compile Include="iPhoneHybridViewController.designer.cs">
       <DependentUpon>iPhoneHybridViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="RazorView.cs">
+    <Compile Include="Views\RazorView.cs">
       <DependentUpon>RazorView.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExampleModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
 </Project>

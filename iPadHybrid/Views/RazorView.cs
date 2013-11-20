@@ -23,8 +23,8 @@ public partial class RazorView : RazorViewBase
 
 #line hidden
 
-#line 1 "/git/RazorHybrid/iPadHybrid/RazorView.cshtml"
-public System.String Model { get; set; }
+#line 1 "/git/RazorHybrid/iPadHybrid/Views/RazorView.cshtml"
+public ExampleModel Model { get; set; }
 
 #line default
 #line hidden
@@ -86,8 +86,8 @@ WriteLiteral(" id=\"label\"");
 WriteLiteral(">");
 
 
-#line 37 "/git/RazorHybrid/iPadHybrid/RazorView.cshtml"
-               Write(Model);
+#line 37 "/git/RazorHybrid/iPadHybrid/Views/RazorView.cshtml"
+               Write(Model.Text);
 
 
 #line default

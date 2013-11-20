@@ -94,11 +94,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Views\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="RazorView.cshtml">
+    <None Include="Views\RazorView.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
       <LastGenOutput>RazorView.cs</LastGenOutput>
     </None>
@@ -110,9 +112,10 @@
     <Compile Include="iPadHybridViewController.designer.cs">
       <DependentUpon>iPadHybridViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="RazorView.cs">
+    <Compile Include="Views\RazorView.cs">
       <DependentUpon>RazorView.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExampleModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

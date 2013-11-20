@@ -51,15 +51,16 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RazorView.cs">
+    <Compile Include="Views\RazorView.cs">
       <DependentUpon>RazorView.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExampleModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
-    <None Include="RazorView.cshtml">
+    <None Include="Views\RazorView.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
       <LastGenOutput>RazorView.cs</LastGenOutput>
     </None>
@@ -72,5 +73,9 @@
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <AndroidAsset Include="Assets\style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>

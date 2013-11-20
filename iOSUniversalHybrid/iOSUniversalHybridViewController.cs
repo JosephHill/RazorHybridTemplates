@@ -33,7 +33,8 @@ namespace iOSUniversalHybrid
 			uiWebView.ShouldStartLoad += HandleShouldStartLoad;
 
 			// Render the view from the type generated from RazorView.cshtml
-			var template = new RazorView () { Model = "Text goes here" };
+			var model = new ExampleModel () { Text = "Text goes here" };
+			var template = new RazorView () { Model = model };
 			var page = template.GenerateString ();
 
 			// Load the rendered HTML into the view with a base URL 
