@@ -12,7 +12,6 @@ UpgradeLog*
 *.user
 *.DS_Store
 *.ide
-*.designer.cs
 !*ControlResources*.designer.cs
 !Resources.Designer.cs
 !NuGet.exe
