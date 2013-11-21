@@ -29,7 +29,9 @@ location.href = "hybrid:" + elm.name + "?" + qs;
 
 This attempts to navigate the webview to a URL with a custom scheme that we’ve made up (“hybrid”):
 
+````
 hybrid:UpdateLabel?textbox=SomeValue&UpdateLabel=Click
+````
 
 When the native webview processes this navigation request, we have the opportunity to intercept it.  In iOS, this is done by handling the UIWebView’s `HandleShouldStartLoad event`.  In Android, we simply subclass the WebViewClient used in the form, and override `ShouldOverrideUrlLoading`.  
 
