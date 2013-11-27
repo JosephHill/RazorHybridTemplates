@@ -15,9 +15,18 @@ namespace iOSUniversalHybrid
 		[Outlet]
 		[GeneratedCodeAttribute ("iOS Designer", "1.0")]
 		MonoTouch.UIKit.UIWebView uiWebView { get; set; }
+
+		[Outlet]
+		[GeneratedCodeAttribute ("iOS Designer", "1.0")]
+		MonoTouch.UIKit.UIWebView webView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (webView != null) {
+				webView.Dispose ();
+				webView = null;
+			}
+
 			if (uiWebView != null) {
 				uiWebView.Dispose ();
 				uiWebView = null;

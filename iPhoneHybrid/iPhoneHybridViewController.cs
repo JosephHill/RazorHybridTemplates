@@ -26,7 +26,7 @@ namespace iPhoneHybrid
 			base.ViewDidLoad ();
 
 			// Intercept URL loading to handle native calls from browser
-			uiWebView.ShouldStartLoad += HandleShouldStartLoad;
+			webView.ShouldStartLoad += HandleShouldStartLoad;
 
 			// Render the view from the type generated from RazorView.cshtml
 			var model = new ExampleModel () { Text = "Text goes here" };
@@ -35,7 +35,7 @@ namespace iPhoneHybrid
 
 			// Load the rendered HTML into the view with a base URL 
 			// that points to the root of the bundled Resources folder
-			uiWebView.LoadHtmlString (page, NSBundle.MainBundle.BundleUrl);
+			webView.LoadHtmlString (page, NSBundle.MainBundle.BundleUrl);
 
 			// Perform any additional setup after loading the view, typically from a nib.
 		}

@@ -14,13 +14,13 @@ namespace iPhoneHybrid
 	{
 		[Outlet]
 		[GeneratedCodeAttribute ("iOS Designer", "1.0")]
-		MonoTouch.UIKit.UIWebView uiWebView { get; set; }
+		MonoTouch.UIKit.UIWebView webView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (uiWebView != null) {
-				uiWebView.Dispose ();
-				uiWebView = null;
+			if (webView != null) {
+				webView.Dispose ();
+				webView = null;
 			}
 		}
 	}

@@ -23,7 +23,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="uiWebView" destination="1" id="name-outlet-1"/>
+                        <outlet property="webView" destination="1" id="name-outlet-1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
